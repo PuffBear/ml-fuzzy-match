@@ -7,14 +7,15 @@ import joblib
 from rapidfuzz import fuzz
 from features import extract_features
 from utils import normalize
+from config import MODEL_PATH, PRODUCT_CSV_PATH, TOP_K_RESULTS, MIN_SCORE_THRESHOLD
 
 class FuzzyMatcher:
-    def __init__(self, model_path="lr_fuzzy_model.pkl", product_csv="product_clean.csv", top_k=5):
+    def __init__(self, model_path=MODEL_PATH, product_csv=PRODUCT_CSV_PATH, top_k=TOP_K_RESULTS):
         self.model = joblib.load(model_path)
         self.products = pd.read_csv(product_csv)['concat'].dropna().unique().tolist()
         self.top_k = top_k
 
-    def match(self, user_query, min_score_threshold=0.005):  # 👈 configurable threshold
+    def match(self, user_query, min_score_threshold=MIN_SCORE_THRESHOLD):  # 👈 configurable threshold
         user_query = normalize(user_query)
         candidates = []
 

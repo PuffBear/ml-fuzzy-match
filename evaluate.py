@@ -9,6 +9,8 @@ from xgboost import XGBClassifier
 from data import create_training_pairs
 from features import build_feature_df
 
+from config import PRODUCT_CSV_PATH, MODEL_PATH
+
 def evaluate_models(product_csv="product_clean.csv"):
     # Step 1: Generate training data
     df_pairs = create_training_pairs(product_csv, num_neg=2)
@@ -41,7 +43,7 @@ def evaluate_models(product_csv="product_clean.csv"):
 
         if name == "Logistic Regression":
             import joblib
-            joblib.dump(model, "lr_fuzzy_model.pkl")
+            joblib.dump(model, MODEL_PATH)
             print("💾 Saved Logistic Regression model as lr_fuzzy_model.pkl")
             y_prob = model.predict_proba(X_test)
             losses = []

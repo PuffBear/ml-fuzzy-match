@@ -9,8 +9,9 @@ import pandas as pd
 import random
 from rapidfuzz import fuzz
 from utils import normalize
+from config import PRODUCT_CSV_PATH, NUM_NEGATIVE_PAIRS, FUZZY_SCORE_LOWER_BOUND, RANDOM_SEED
 
-def create_training_pairs(csv_path="product_clean.csv", num_neg=1, seed=42):
+def create_training_pairs(csv_path=PRODUCT_CSV_PATH, num_neg=NUM_NEGATIVE_PAIRS, seed=RANDOM_SEED):
     """
     Creates labeled (query, product, label) pairs from a product list:
     - Positive = identical product strings
@@ -58,7 +59,7 @@ def create_training_pairs(csv_path="product_clean.csv", num_neg=1, seed=42):
         count = 0
         while count < num_neg and j < len(scored):
             candidate, score = scored[j]
-            if score < 100 and score > 60:  # "close but wrong"
+            if score < 100 and score > FUZZY_SCORE_LOWER_BOUND:  # "close but wrong"
                 pairs.append({
                     'query': anchor,
                     'product': candidate,
