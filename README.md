@@ -1,25 +1,26 @@
-## Supervised Learning Fuzzy Matching Model:
+<h1 align="center" id="title">ml-fuzzy-matching</h1>
 
-ml-fuzzy-match/
-|
-├── eda_cleaning.ipynb    # Data loading, eda, cleaning, finalizing column
-├── utils.py              # keep functions like normalize here. 
-├── data.py               # Load and prepare training data (positive + negative pairs)
-├── features.py           # Extract similarity features from string pairs
-├── model.py              # Train and evaluate LR and XGBoost Model. and depending on performances save the better model.
-├──                       # Using for demo: Logistic Regression
-├── evaluate.py           # The cli driver for comarison
-├── match.py              # Inference: take a user query and return best match
-├ - - - separate - - - - - - - - separate - - - - - - - - - separate - - - - - - - - 
-├── config.py             # Centralized constants (thresholds, paths, etc.)
-├── demo.ipynb            # notebook to test everything end-to-end and essentially serves as a demo for others to see how to work with this git repo.
-└── README.md             # Project guide
+  
+  
+<h2>📂 Files</h2> 
 
+*   eda_cleaning.ipynb: Data loading, eda, cleaning, finalizing column.
+*   utils.py
+*   data.py: Load and prepare training data (positive + negative pairs).
+*   features.py: Extract similarity features from string pairs.
+*   model.py: Train and evaluate LR and XGBoost Model. and depending on performances save the better model.
+*   evaluate.py: The cli driver for comparison
+*   match.py: Inference: take a user query and return best match
+*   config.py: Centralized constants (thresholds, paths, etc.).
+*   demo.ipynb: notebook to test everything end-to-end and essentially serves as a demo for others to see how to work with this git repo.
 
-Data Files:
-|
-├── product.csv           # initial file to implement eda_cleaning.csv on
-├── product_clean.csv     # final column to train and test fuzzy matching
+  
+  
+<h2>💻 Built with</h2>
+
+*   Python
+*   Scikit-Learn
+*   XGBoost
 
 Correct Working Pipeline:
 1. evaluate.py
