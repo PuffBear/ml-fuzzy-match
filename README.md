@@ -3,9 +3,10 @@
 ml-fuzzy-match/
 |
 ├── eda_cleaning.ipynb    # Data loading, eda, cleaning, finalizing column
+├── utils.py              # keep functions like normalize here. 
 ├── data.py               # Load and prepare training data (positive + negative pairs)
 ├── features.py           # Extract similarity features from string pairs
-├── model.py              # Train and evaluate ML model
+├── model.py              # Train and evaluate LR and XGBoost Model. and depending on performances save the better model.
 ├── match.py              # Inference: take a user query and return best match
 ├ - - - separate - - - - - - - - separate - - - - - - - - - separate - - - - - - - - 
 ├── config.py             # Centralized constants (thresholds, paths, etc.)
