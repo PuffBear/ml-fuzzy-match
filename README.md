@@ -11,3 +11,9 @@ ml-fuzzy-match/
 ├── config.py             # Centralized constants (thresholds, paths, etc.)
 ├── demo.ipynb            # notebook to test everything end-to-end and essentially serves as a demo for others to see how to work with this git repo.
 └── README.md             # Project guide
+
+
+Data Files:
+|
+├── product.csv           # initial file to implement eda_cleaning.csv on
+├── product_clean.csv     # final column to train and test fuzzy matching
