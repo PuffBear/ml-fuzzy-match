@@ -7,6 +7,8 @@ ml-fuzzy-match/
 ├── data.py               # Load and prepare training data (positive + negative pairs)
 ├── features.py           # Extract similarity features from string pairs
 ├── model.py              # Train and evaluate LR and XGBoost Model. and depending on performances save the better model.
+├──                       # Using for demo: Logistic Regression
+├── evaluate.py           # The cli driver for comarison
 ├── match.py              # Inference: take a user query and return best match
 ├ - - - separate - - - - - - - - separate - - - - - - - - - separate - - - - - - - - 
 ├── config.py             # Centralized constants (thresholds, paths, etc.)
