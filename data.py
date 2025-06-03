@@ -27,7 +27,7 @@ def create_training_pairs(csv_path=PRODUCT_CSV_PATH, num_neg=NUM_NEGATIVE_PAIRS,
     """
     random.seed(seed)
     df = pd.read_csv(csv_path)
-    products = df['concat'].dropna().unique().tolist()
+    products = df['product_name'].dropna().unique().tolist()
 
     # Already normalized, but extra safety
     products = [normalize(p) for p in products if isinstance(p, str) and p.strip()]

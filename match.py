@@ -12,7 +12,7 @@ from config import MODEL_PATH, PRODUCT_CSV_PATH, TOP_K_RESULTS, MIN_SCORE_THRESH
 class FuzzyMatcher:
     def __init__(self, model_path=MODEL_PATH, product_csv=PRODUCT_CSV_PATH, top_k=TOP_K_RESULTS):
         self.model = joblib.load(model_path)
-        self.products = pd.read_csv(product_csv)['concat'].dropna().unique().tolist()
+        self.products = pd.read_csv(product_csv)['product_name'].dropna().unique().tolist()
         self.top_k = top_k
 
     def match(self, user_query, min_score_threshold=MIN_SCORE_THRESHOLD):  # 👈 configurable threshold
@@ -46,5 +46,5 @@ class FuzzyMatcher:
 
         fallback_ranked = sorted(raw_candidates, key=lambda x: -x[1])
         print("⚠️ No match passed the threshold — showing fallback:")
-        return fallback_ranked[:1]
+        return fallback_ranked[:5]
 
